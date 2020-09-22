@@ -1,3 +1,16 @@
-<h1>app works</h1>
+<mat-toolbar>
+  <div id="toolbar" fxLayout="row">
+    <div fxLayout="column">
+      <h2>ICS 484 Project 1</h2>
+    </div>
+    <div fxLayout="column">
+      <div id="buttons" fxLayout="row">
+        <button id="button" mat-flat-button routerLink="cholera">Cholera</button>
+        <button id="button" mat-flat-button routerLink="uk">UK Census</button>
+        <button id="button" mat-flat-button routerLink="about">About</button>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
