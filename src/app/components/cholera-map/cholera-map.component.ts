@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import * as Plotly from 'plotly.js/dist/plotly';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cholera-map',
@@ -59,7 +60,7 @@ export class CholeraMapComponent implements OnInit {
     const deathLat = [];
     const deathLong = [];
 
-    this.http.get('/assets/data/choleraDeathLocations.csv', { responseType: 'text' }).toPromise()
+    this.http.get(environment.baseUrl + '/assets/data/choleraDeathLocations.csv', { responseType: 'text' }).toPromise()
       .then((data) => {
         data = 'deaths,long,lat\n' + data;
 
@@ -90,7 +91,7 @@ export class CholeraMapComponent implements OnInit {
     const pumpLat = [];
     const pumpLong = [];
 
-    this.http.get('/assets/data/choleraPumpLocations.csv', { responseType: 'text' }).toPromise()
+    this.http.get(environment.baseUrl + '/assets/data/choleraPumpLocations.csv', { responseType: 'text' }).toPromise()
       .then((data) => {
 
         data = 'long,lat\n' + data;

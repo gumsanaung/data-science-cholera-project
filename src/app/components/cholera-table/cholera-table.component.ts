@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import * as Plotly from 'plotly.js/dist/plotly.js';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cholera-table',
@@ -22,7 +23,7 @@ export class CholeraTableComponent implements OnInit {
   }
 
   private getDeaths() {
-    this.http.get('/assets/data/choleraDeaths.tsv', { responseType: 'text' })
+    this.http.get(environment.baseUrl + '/assets/data/choleraDeaths.tsv', { responseType: 'text' })
       .toPromise()
       .then((data) => {
         this.choleraDeaths = Plotly.d3.tsv.parse(data);

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import * as Plotly from 'plotly.js/dist/plotly';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-uk-census-table',
@@ -22,7 +23,7 @@ export class UkCensusTableComponent implements OnInit {
 
   }
   private getStats() {
-    this.http.get('/assets/data/UKcensus1851.csv', { responseType: 'text' })
+    this.http.get(environment.baseUrl + '/assets/data/UKcensus1851.csv', { responseType: 'text' })
       .toPromise()
       .then((data) => {
         data = data.replace(/^[#@][^\r\n]+[\r\n]+/mg, '');
